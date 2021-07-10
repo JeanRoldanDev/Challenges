@@ -49,7 +49,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  ValueNotifier<double> _speed = ValueNotifier<double>(130);
+  ValueNotifier<double> _speed = ValueNotifier<double>(200);
 
   @override
   Widget build(BuildContext context) {
@@ -69,145 +69,105 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             //BODY
             Expanded(
-              child: Stack(
-                alignment: Alignment.center,
+              child: Row(
                 children: [
-                  //SPEEDOMETER
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 70, right: 70),
-                      child: LayoutBuilder(
-                        builder:
-                            (BuildContext context, BoxConstraints constraints) {
-                          final minWidth =
-                              constraints.maxWidth.clamp(300, 500).toDouble();
-                          final textWidth = 30.0;
-                          return Container(
-                            width: minWidth,
-                            height: minWidth,
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                //ICON BMW
-                                Positioned(
-                                  bottom: 0,
-                                  child: Image.asset(
-                                    Helpers.car1Img,
-                                    width: minWidth / 2,
-                                  ),
-                                ),
-                                //ICON BMW
-                                Positioned(
-                                  top: 60,
-                                  child: Image.asset(
-                                    Helpers.bmwLogoImg,
-                                    width: 30,
-                                  ),
-                                ),
-
-                                //NUMBERS SPEEDOMETER
-                                ...List.generate(
-                                  items,
-                                  (index) {
-                                    return Transform.translate(
-                                      offset: Offset(
-                                        -((minWidth - textWidth) /
-                                            2 *
-                                            math.cos(
-                                                (step * (index)) - gradual)),
-                                        -((minWidth - textWidth) /
-                                            2 *
-                                            math.sin(
-                                                (step * (index)) - gradual)),
-                                      ),
-                                      child: Container(
-                                        width: textWidth,
-                                        height: textWidth / 2,
-                                        alignment: Alignment.center,
-                                        child: FittedBox(
-                                          child: Text(
-                                            '${kms[index]}',
-                                            style: Helpers.txtSpeedometerStyle,
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ).toList(),
-
-                                //SPEEDOMETER
-                                AnimatedBuilder(
-                                  animation: _speed,
-                                  builder: (_, __) {
-                                    return Container(
-                                      width: minWidth - (textWidth * 1.8),
-                                      height: minWidth - (textWidth * 1.8),
-                                      child: CustomPaint(
-                                        painter: _Speedometer(
-                                          kmh: _speed.value,
-                                          radioMark: 7,
-                                          radioMarkWidth: 0.65,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-
-                  /// ANIMAR
-                  Positioned(
-                    bottom: 0,
-                    child: SizedBox(
-                      width: 200,
-                      child: ValueListenableBuilder(
-                        valueListenable: _speed,
-                        builder: (BuildContext context, dynamic value,
-                            Widget? child) {
-                          return Slider(
-                            value: _speed.value,
-                            min: 0,
-                            max: 400,
-                            label: _speed.value.round().toString(),
-                            onChanged: (double value) {
-                              _speed.value = value;
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                  ),
                   //BAR_LEFT
-                  Positioned(
-                    left: 0,
-                    top: 0,
-                    bottom: 0,
-                    child: MenuLeft(
-                      width: 75,
-                      itemsMenu: [
-                        BtnMenuLeft(Helpers.racesSVG, status: true),
-                        BtnMenuLeft(Helpers.phoneSVG),
-                        BtnMenuLeft(Helpers.compassSVG),
-                        BtnMenuLeft(Helpers.musicalNoteSVG),
-                      ],
+                  MenuLeft(
+                    width: 75,
+                    itemsMenu: [
+                      BtnMenuLeft(Helpers.racesSVG, status: true),
+                      BtnMenuLeft(Helpers.phoneSVG),
+                      BtnMenuLeft(Helpers.compassSVG),
+                      BtnMenuLeft(Helpers.musicalNoteSVG),
+                    ],
+                  ),
+                  //SPEEDOMETER
+                  Expanded(
+                    child: LayoutBuilder(
+                      builder:
+                          (BuildContext context, BoxConstraints constraints) {
+                        final minWidth =
+                            constraints.maxWidth.clamp(300, 400).toDouble();
+                        final textWidth = 30.0;
+                        return Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            //NUMBERS SPEEDOMETER
+                            ...List.generate(
+                              items,
+                              (index) {
+                                return Transform.translate(
+                                  offset: Offset(
+                                    -((minWidth - textWidth) /
+                                        2 *
+                                        math.cos((step * (index)) - gradual)),
+                                    -((minWidth - textWidth) /
+                                        2 *
+                                        math.sin((step * (index)) - gradual)),
+                                  ),
+                                  child: Container(
+                                    width: textWidth,
+                                    height: textWidth / 2,
+                                    alignment: Alignment.center,
+                                    child: FittedBox(
+                                      child: Text(
+                                        '${kms[index]}',
+                                        style: Helpers.txtSpeedometerStyle,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ).toList(),
+                            //SPEEDOMETER
+                            AnimatedBuilder(
+                              animation: _speed,
+                              builder: (_, __) {
+                                return Container(
+                                  width: minWidth - (textWidth * 1.8),
+                                  height: minWidth - (textWidth * 1.8),
+                                  child: CustomPaint(
+                                    painter: _Speedometer(
+                                      kmh: _speed.value,
+                                      radioMark: 7,
+                                      radioMarkWidth: 0.65,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+
+                            /// ANIMAR
+                            Positioned(
+                              bottom: 0,
+                              child: SizedBox(
+                                width: 200,
+                                child: ValueListenableBuilder(
+                                  valueListenable: _speed,
+                                  builder: (BuildContext context, dynamic value,
+                                      Widget? child) {
+                                    return Slider(
+                                      value: _speed.value,
+                                      min: 0,
+                                      max: 400,
+                                      label: _speed.value.round().toString(),
+                                      onChanged: (double value) {
+                                        _speed.value = value;
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
                     ),
                   ),
                   //BAR_RIGHT
-                  Positioned(
-                    right: 0,
-                    top: 0,
-                    bottom: 0,
-                    child: Container(
-                      width: 75,
-                      color: Colors.black,
-                    ),
+                  Container(
+                    width: 80,
+                    color: Colors.red,
                   ),
                 ],
               ),
@@ -215,7 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
             //FOOTHER
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 80,
+              height: 75,
               child: CustomPaint(
                 painter: KmInfo(color: Colors.grey.shade400),
                 child: Padding(
@@ -228,12 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Gasoline(),
-                      ValueListenableBuilder<double>(
-                        valueListenable: _speed,
-                        builder: (_, value, __) {
-                          return SpeedNumKm(km: value.toInt());
-                        },
-                      ),
+                      SpeedNumKm(km: 170),
                       Temperature(),
                     ],
                   ),
