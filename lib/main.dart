@@ -1,16 +1,11 @@
-import 'dart:ui';
-
 import 'package:challenges/helper.dart';
-import 'package:challenges/kminfo.dart';
-import 'package:challenges/widgets/gasoline.dart';
+import 'package:challenges/widgets/footer.dart';
+import 'package:challenges/widgets/header.dart';
 import 'package:challenges/widgets/menu_left.dart';
-import 'package:challenges/widgets/speed_num_km.dart';
-import 'package:challenges/widgets/temperature.dart';
+import 'package:challenges/widgets/menu_rigth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-
-import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -57,16 +53,12 @@ class _MyHomePageState extends State<MyHomePage> {
     final step = ((220 * math.pi) / 180) / (items - 1);
     final gradual = ((20 * math.pi) / 180);
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: Colors.grey.shade300,
       body: SafeArea(
         child: Column(
           children: [
             //HEADER
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: kToolbarHeight,
-              color: Colors.blue,
-            ),
+            const HeaderTop(),
             //BODY
             Expanded(
               child: Stack(
@@ -81,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         builder:
                             (BuildContext context, BoxConstraints constraints) {
                           final minWidth =
-                              constraints.maxWidth.clamp(300, 500).toDouble();
+                              constraints.maxWidth.clamp(300, 450).toDouble();
                           final textWidth = 30.0;
                           return Container(
                             width: minWidth,
@@ -98,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     width: minWidth / 2,
                                   ),
                                 ),
-                                //ICON BMW
+                                // ICON BMW
                                 Positioned(
                                   top: 60,
                                   child: Image.asset(
@@ -184,6 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
+
                   //BAR_LEFT
                   Positioned(
                     left: 0,
@@ -199,46 +192,33 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                   ),
+
                   //BAR_RIGHT
                   Positioned(
                     right: 0,
                     top: 0,
                     bottom: 0,
-                    child: Container(
-                      width: 75,
-                      color: Colors.black,
+                    child: MenuRight(
+                      speed: _speed,
+                      max: kms.reduce(math.max),
                     ),
                   ),
                 ],
               ),
             ),
-            //FOOTHER
+            //FOOTER
             Container(
               width: MediaQuery.of(context).size.width,
               height: 80,
-              child: CustomPaint(
-                painter: KmInfo(color: Colors.grey.shade400),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 5,
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Gasoline(),
-                      ValueListenableBuilder<double>(
-                        valueListenable: _speed,
-                        builder: (_, value, __) {
-                          return SpeedNumKm(km: value.toInt());
-                        },
-                      ),
-                      Temperature(),
-                    ],
-                  ),
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                  color: Colors.blue.withOpacity(.5),
+                  spreadRadius: 0,
+                  blurRadius: 50,
+                  offset: Offset(0, 0), // changes position of shadow
                 ),
-              ),
+              ]),
+              child: Footer(speed: _speed),
             ),
           ],
         ),
@@ -274,7 +254,7 @@ class _Speedometer extends CustomPainter {
     paint.shader = RadialGradient(
       colors: [
         Colors.blue,
-        Colors.white,
+        Colors.grey.shade300,
       ],
       stops: [0.1, 0.5],
       focal: Alignment.center,
@@ -389,24 +369,5 @@ class _Speedometer extends CustomPainter {
   Color _getColor(value) {
     final double hue = ((1 - value) * 120);
     return HSLColor.fromAHSL(1, hue, 1, 0.40).toColor();
-  }
-}
-
-class Menu extends StatelessWidget {
-  const Menu({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      left: 0,
-      top: 50,
-      child: Container(
-        width: 80,
-        height: 250,
-        color: Colors.red,
-      ),
-    );
   }
 }
