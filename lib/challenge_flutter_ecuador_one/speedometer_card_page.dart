@@ -1,25 +1,30 @@
+import 'dart:async';
+import 'dart:math' as math;
+
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:location/location.dart';
 import 'package:challenges/challenge_flutter_ecuador_one/helper.dart';
 import 'package:challenges/challenge_flutter_ecuador_one/widgets/footer.dart';
 import 'package:challenges/challenge_flutter_ecuador_one/widgets/header.dart';
 import 'package:challenges/challenge_flutter_ecuador_one/widgets/menu_left.dart';
 import 'package:challenges/challenge_flutter_ecuador_one/widgets/menu_rigth.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'dart:math' as math;
-
-import 'package:flutter/services.dart';
 
 const List<int> kms = <int>[
   0,
-  50,
+  20,
+  40,
+  60,
+  80,
   100,
-  150,
+  120,
+  140,
+  160,
+  180,
   200,
-  250,
-  300,
-  350,
-  400,
+  220,
+  240,
 ];
 
 class SpeedometerCardPage extends StatefulWidget {
@@ -30,6 +35,8 @@ class SpeedometerCardPage extends StatefulWidget {
 
 class _SpeedometerCardPageState extends State<SpeedometerCardPage> {
   ValueNotifier<double> _speed = ValueNotifier<double>(130);
+  final location = Location();
+  StreamSubscription<LocationData>? _positionStreamSubscription;
 
   @override
   void initState() {
@@ -40,9 +47,21 @@ class _SpeedometerCardPageState extends State<SpeedometerCardPage> {
           DeviceOrientation.landscapeRight,
         ]);
         SystemChrome.setEnabledSystemUIOverlays([]);
+        location.onLocationChanged.listen(tracking);
       }
     });
+
     super.initState();
+  }
+
+  tracking(LocationData locationData) {
+    if (locationData.speed != null) _speed.value = (locationData.speed! * 3.6);
+  }
+
+  @override
+  void dispose() {
+    _positionStreamSubscription?.cancel();
+    super.dispose();
   }
 
   @override
@@ -220,27 +239,28 @@ class _SpeedometerCardPageState extends State<SpeedometerCardPage> {
                   ),
 
                   /// ANIMAR
-                  Positioned(
-                    bottom: 0,
-                    child: SizedBox(
-                      width: 200,
-                      child: ValueListenableBuilder(
-                        valueListenable: _speed,
-                        builder: (BuildContext context, dynamic value,
-                            Widget? child) {
-                          return Slider(
-                            value: _speed.value,
-                            min: 0,
-                            max: 400,
-                            label: _speed.value.round().toString(),
-                            onChanged: (double value) {
-                              _speed.value = value;
-                            },
-                          );
-                        },
+                  if (kIsWeb)
+                    Positioned(
+                      bottom: 0,
+                      child: SizedBox(
+                        width: 200,
+                        child: ValueListenableBuilder(
+                          valueListenable: _speed,
+                          builder: (BuildContext context, dynamic value,
+                              Widget? child) {
+                            return Slider(
+                              value: _speed.value,
+                              min: 0,
+                              max: 240,
+                              label: _speed.value.round().toString(),
+                              onChanged: (double value) {
+                                _speed.value = value;
+                              },
+                            );
+                          },
+                        ),
                       ),
                     ),
-                  ),
 
                   //BAR_LEFT AND BAR_RIGTH
                   if (kIsWeb) ...[

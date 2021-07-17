@@ -77,7 +77,7 @@ class NewCardPage extends StatelessWidget {
                               backgroundColor: Colors.white,
                               child: Icon(
                                 Icons.credit_card,
-                                color: Helpers.purple_color,
+                                color: Helpers.purpleColor,
                               ),
                             ),
                           ),
@@ -169,7 +169,7 @@ class NewCardPage extends StatelessWidget {
                                       '\$100  \$5000',
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
-                                        color: Helpers.purple_color,
+                                        color: Helpers.purpleColor,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: Helpers.fontPrincipal,
                                         fontSize: 25,

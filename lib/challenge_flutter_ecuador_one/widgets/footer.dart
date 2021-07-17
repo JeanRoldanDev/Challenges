@@ -28,7 +28,7 @@ class Footer extends StatelessWidget {
             ValueListenableBuilder<double>(
               valueListenable: _speed,
               builder: (_, value, __) {
-                return _SpeedNumKm(km: value.toInt());
+                return _SpeedNumKm(km: value);
               },
             ),
             const _Temperature(),
@@ -110,7 +110,7 @@ class _SpeedNumKm extends StatelessWidget {
     Key? key,
     required this.km,
   }) : super(key: key);
-  final int km;
+  final double km;
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +118,7 @@ class _SpeedNumKm extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            '$km',
+            '${km.toStringAsFixed(2)}',
             style: Helpers.txtNumKmStyle,
           ),
           FittedBox(

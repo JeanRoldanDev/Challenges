@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 extension MyHours on DateTime {
   String currentTime() {
     final hour = this.hour;
-    final minute = this.minute;
+    final minute = this.minute < 10 ? '0${this.minute}' : '${this.minute}';
     final seconds = this.second < 10 ? '0${this.second}' : '${this.second}';
     return '$hour:$minute:$seconds';
   }
