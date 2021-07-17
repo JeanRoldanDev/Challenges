@@ -1,4 +1,4 @@
-import 'package:challenges/helper.dart';
+import 'package:challenges/challenge_flutter_ecuador_one/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

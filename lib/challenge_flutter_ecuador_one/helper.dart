@@ -13,7 +13,7 @@ class Helpers {
 
   //=================================STYLES=================================
   static TextStyle get txtSpeedometerStyle => const TextStyle(
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.bold,
         color: _blue,
       );
 
