@@ -30,12 +30,12 @@
 
 ## Bank (Challenge of Diego Velasquez)
 
-<TABLE border width="600">
+<TABLE border width="300">
     <TR>
         <TH>Fase 1 &#9997;</TH>
     </TR>
 	<TR>
-		<TD><img src="./screenshot/2/1.gif"/></TD> 
+		<TD><img src="./screenshot/2/1.gif"/  width="300"></TD> 
 	</TR>
 </TABLE>
 
