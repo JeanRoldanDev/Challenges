@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:challenges/challenge_bank_diego/data.dart';
 import 'package:challenges/challenge_bank_diego/helpers.dart';
+import 'package:challenges/challenge_bank_diego/widgets/item_circle_user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -94,7 +95,6 @@ class NewCardPage extends StatelessWidget {
                   )
                 ],
               ),
-
               Flexible(
                 flex: 1,
                 child: ListView.builder(
@@ -291,98 +291,9 @@ class NewCardPage extends StatelessWidget {
                         ),
                       ),
               ),
-
-              // Expanded(
-              //   flex: 3,
-              //   child: Container(
-              //     decoration: BoxDecoration(
-              //       color: Colors.red,
-              //       borderRadius: BorderRadius.circular(30),
-              //     ),
-              //     child: Column(
-              //       crossAxisAlignment: CrossAxisAlignment.center,
-              //       mainAxisAlignment: MainAxisAlignment.start,
-              //       children: [
-              //         Row(
-              //           children: [
-              //             Icon(
-              //               Icons.credit_card,
-              //               size: 50,
-              //               color: Helpers.purpleColor,
-              //             ),
-              //             Text(
-              //               'Pay for services',
-              //               style: Helpers.txtList,
-              //             ),
-              //           ],
-              //         ),
-              //         Row(
-              //           children: [
-              //             Icon(
-              //               Icons.credit_card,
-              //               size: 50,
-              //               color: Helpers.purpleColor,
-              //             ),
-              //             Text(
-              //               'Pay for services',
-              //               style: Helpers.txtList,
-              //             ),
-              //           ],
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // )
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class ItemCircleUser extends StatelessWidget {
-  const ItemCircleUser({
-    Key? key,
-    required this.name,
-    required this.width,
-    this.backgroundImage,
-    this.child,
-  }) : super(key: key);
-  final String name;
-  final ImageProvider<Object>? backgroundImage;
-  final Widget? child;
-  final double width;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 15),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          FittedBox(
-            child: CircleAvatar(
-              radius: width / 2,
-              backgroundColor: Colors.white,
-              backgroundImage: backgroundImage,
-              child: backgroundImage == null ? child : null,
-            ),
-          ),
-          const SizedBox(height: 5),
-          SizedBox(
-            width: width,
-            child: Text(
-              name,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              softWrap: true,
-              style: Helpers.txtName,
-            ),
-          )
-        ],
       ),
     );
   }

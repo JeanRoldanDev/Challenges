@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:challenges/challenge_bank_diego/data.dart';
 import 'package:challenges/challenge_bank_diego/helpers.dart';
 import 'package:challenges/challenge_bank_diego/pages/new_card_page.dart';
+import 'package:challenges/challenge_bank_diego/widgets/bank_card.dart';
 import 'package:challenges/widgets/listenable/value_listenable_two.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -249,45 +250,6 @@ class _BankAnimationPageState extends State<BankAnimationPage>
               ],
             );
           },
-        ),
-      ),
-    );
-  }
-}
-
-class BankCard extends StatelessWidget {
-  const BankCard({
-    Key? key,
-    required this.text,
-    required this.img,
-    required this.radio,
-  }) : super(key: key);
-
-  final String text;
-  final String img;
-
-  final double radio;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      margin: EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(radio),
-        image: DecorationImage(
-          image: AssetImage(img),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Container(
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
         ),
       ),
     );
