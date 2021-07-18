@@ -1,16 +1,43 @@
-# challenges
+# ======================Challenges======================
 
-A new Flutter project.
+## Speedometer web/mobile (Challenge of Flutter Ecuador)
 
-## Getting Started
+<TABLE border width="600">
+    <TR>
+        <TH>WEB &#128187;</TH>
+    </TR>
+	<TR>
+		<TD><img src="./screenshot/1/web1.jpg"/></TD> 
+	</TR>
+    <TR>
+		<TD colspan="2">MOBILE &#128293;&#128241;</TD> 
+	</TR>
+    <TR>
+		<TD><img src="./screenshot/1/mobile1.gif"/></TD> 
+	</TR>
+    <TR>
+		<TD colspan="2">PHYSICAL TEST &#128664;&#128170;</TD> 
+	</TR>
+    <TR>
+        <TD><img src="./screenshot/1/test.gif"/></TD> 
+	</TR>
+</TABLE>
 
-This project is a starting point for a Flutter application.
+- [INSPIRATION](https://dribbble.com/frankdesign2012)
+- [CREDIT: Frank](https://dribbble.com/frankdesign2012)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Bank (Challenge of Diego Velasquez)
+
+<TABLE border width="600">
+    <TR>
+        <TH>Fase 1 &#9997;</TH>
+    </TR>
+	<TR>
+		<TD><img src="./screenshot/2/1.gif"/></TD> 
+	</TR>
+</TABLE>
+
+- [INSPIRATION](https://dribbble.com/shots/14891203-Banking-Mobile-App)
+- [CREDIT: Alex.S](https://dribbble.com/alexey_semenov)
