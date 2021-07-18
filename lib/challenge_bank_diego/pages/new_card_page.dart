@@ -12,11 +12,18 @@ class NewCardPage extends StatelessWidget {
     required this.maxheight,
     required this.maxWidth,
     this.isView = false,
+    this.onVerticalDragUpdate,
+    this.onVerticalDragEnd,
+    this.onTapBtnClose,
   }) : super(key: key);
   final double value;
   final double maxheight;
   final double maxWidth;
   final bool isView;
+
+  final void Function(DragUpdateDetails details)? onVerticalDragUpdate;
+  final void Function(DragEndDetails details)? onVerticalDragEnd;
+  final VoidCallback? onTapBtnClose;
 
   @override
   Widget build(BuildContext context) {
@@ -184,45 +191,148 @@ class NewCardPage extends StatelessWidget {
                       ),
               ),
               if (value >= .3) const SizedBox(height: 20),
-              Expanded(
+              Flexible(
                 flex: 3,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  // child: Column(
-                  //   children: [
-                  //     Row(
-                  //       children: [
-                  //         Icon(
-                  //           Icons.credit_card,
-                  //           size: 50,
-                  //           color: Helpers.purple_color,
-                  //         ),
-                  //         Text(
-                  //           'Pay for services',
-                  //           style: Helpers.txtList,
-                  //         ),
-                  //       ],
-                  //     ),
-                  //     Row(
-                  //       children: [
-                  //         Icon(
-                  //           Icons.credit_card,
-                  //           size: 50,
-                  //           color: Helpers.purple_color,
-                  //         ),
-                  //         Text(
-                  //           'Pay for services',
-                  //           style: Helpers.txtList,
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ],
-                  // ),
-                ),
-              )
+                child: value <= 0.20
+                    ? const SizedBox.shrink()
+                    : Opacity(
+                        opacity: value,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.white,
+                          ),
+                          padding: const EdgeInsets.all(10),
+                          margin: EdgeInsets.only(bottom: 20),
+                          alignment: Alignment.topLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              if (value >= .60) ...[
+                                Flexible(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Icon(
+                                          Icons.credit_card,
+                                          size: 50,
+                                          color: Helpers.purpleColor,
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          'Pay for services',
+                                          style: Helpers.txtList,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Flexible(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Icon(
+                                          Icons.credit_card,
+                                          size: 50,
+                                          color: Helpers.purpleColor,
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          'TaKE A LOAN ',
+                                          style: Helpers.txtList,
+                                        ),
+                                        Spacer(),
+                                        Text(
+                                          '4%',
+                                          style: Helpers.txtList,
+                                        ),
+                                        SizedBox(width: 20),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 3,
+                                  child: GestureDetector(
+                                    onVerticalDragUpdate: onVerticalDragUpdate,
+                                    onVerticalDragEnd: onVerticalDragEnd,
+                                    child: Container(
+                                      alignment: Alignment.bottomCenter,
+                                      padding:
+                                          const EdgeInsets.only(bottom: 10),
+                                      child: InkWell(
+                                        onTap: onTapBtnClose,
+                                        child: Container(
+                                          width: 50,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            color: Helpers.purpleLigth_color,
+                                            shape: BoxShape.circle,
+                                          ),
+                                          alignment: Alignment.center,
+                                          child: Icon(
+                                            Icons.more_horiz,
+                                            color: Helpers.purpleColor,
+                                            size: 40,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ],
+                          ),
+                        ),
+                      ),
+              ),
+
+              // Expanded(
+              //   flex: 3,
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       color: Colors.red,
+              //       borderRadius: BorderRadius.circular(30),
+              //     ),
+              //     child: Column(
+              //       crossAxisAlignment: CrossAxisAlignment.center,
+              //       mainAxisAlignment: MainAxisAlignment.start,
+              //       children: [
+              //         Row(
+              //           children: [
+              //             Icon(
+              //               Icons.credit_card,
+              //               size: 50,
+              //               color: Helpers.purpleColor,
+              //             ),
+              //             Text(
+              //               'Pay for services',
+              //               style: Helpers.txtList,
+              //             ),
+              //           ],
+              //         ),
+              //         Row(
+              //           children: [
+              //             Icon(
+              //               Icons.credit_card,
+              //               size: 50,
+              //               color: Helpers.purpleColor,
+              //             ),
+              //             Text(
+              //               'Pay for services',
+              //               style: Helpers.txtList,
+              //             ),
+              //           ],
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ),

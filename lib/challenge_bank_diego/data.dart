@@ -99,3 +99,22 @@ class User {
         ),
       ];
 }
+
+class Bank {
+  final int id;
+  final String img;
+  final String pricing;
+
+  Bank({
+    required this.id,
+    required this.img,
+    required this.pricing,
+  });
+
+  static const _path = 'assets/images/3_challenge_diego';
+  static List<Bank> get listBank => [
+        Bank(id: 1, img: '$_path/1.jpg', pricing: '\$10346'),
+        Bank(id: 2, img: '$_path/2.jpg', pricing: '\$1036'),
+        Bank(id: 3, img: '$_path/3.jpg', pricing: '\$102'),
+      ];
+}

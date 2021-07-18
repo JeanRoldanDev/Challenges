@@ -7,6 +7,9 @@ class Helpers {
   static String get fontPrincipal => _konnectFont;
 
   static const Color purpleLigth_color = Color(0xffdddffe);
+  static const Color blueColor = Color(0xff0a094b);
+  static const Color blueColor2 = Color(0xff020080);
+
   static Color purpleColor = Colors.purple.shade900;
 
   static TextStyle txtNameUser = TextStyle(

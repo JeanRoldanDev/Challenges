@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:challenges/challenge_bank_diego/data.dart';
+import 'package:challenges/challenge_bank_diego/helpers.dart';
 import 'package:challenges/challenge_bank_diego/pages/new_card_page.dart';
 import 'package:challenges/widgets/listenable/value_listenable_two.dart';
 import 'package:flutter/foundation.dart';
@@ -89,6 +91,9 @@ class _BankAnimationPageState extends State<BankAnimationPage>
                     value: _animationController.value,
                     maxheight: value,
                     maxWidth: maxWidth,
+                    onTapBtnClose: () {
+                      _animationController.reverse();
+                    },
                   ),
                 ),
                 Positioned(
@@ -158,16 +163,25 @@ class _BankAnimationPageState extends State<BankAnimationPage>
                                     width: fillWidthTOTAL,
                                     height: fillHeightTOTAL,
                                     decoration: BoxDecoration(
-                                      color: Colors.blue,
+                                      // color: Helpers.blueColor,
                                       borderRadius: BorderRadius.circular(
                                           borderRaius * value),
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Helpers.blueColor,
+                                          Helpers.blueColor2,
+                                          Helpers.blueColor,
+                                        ],
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                      ),
                                     ),
                                     alignment: Alignment.topLeft,
-                                    child: Container(
-                                      width: 2,
-                                      height: 6,
-                                      color: Colors.black,
-                                    ),
+                                    // child: Container(
+                                    //   width: 2,
+                                    //   height: 6,
+                                    //   color: Colors.black,
+                                    // ),
                                   ),
                                 ),
                               );
@@ -177,7 +191,8 @@ class _BankAnimationPageState extends State<BankAnimationPage>
                         // PAGES
                         PageView.builder(
                           controller: _pageController,
-                          itemCount: 4,
+                          itemCount: Bank.listBank.length + 1,
+                          physics: const BouncingScrollPhysics(),
                           itemBuilder: (ctxt, index) {
                             switch (index) {
                               case 0:
@@ -213,13 +228,16 @@ class _BankAnimationPageState extends State<BankAnimationPage>
                                   },
                                   child: BankCard(
                                     radio: borderRaius,
-                                    text: '$index',
+                                    text:
+                                        Bank.listBank[index - 1].id.toString(),
+                                    img: Bank.listBank[index - 1].img,
                                   ),
                                 );
                               default:
                                 return BankCard(
                                   radio: borderRaius,
-                                  text: '$index',
+                                  text: Bank.listBank[index - 1].id.toString(),
+                                  img: Bank.listBank[index - 1].img,
                                 );
                             }
                           },
@@ -240,10 +258,14 @@ class _BankAnimationPageState extends State<BankAnimationPage>
 class BankCard extends StatelessWidget {
   const BankCard({
     Key? key,
-    this.text,
+    required this.text,
+    required this.img,
     required this.radio,
   }) : super(key: key);
-  final String? text;
+
+  final String text;
+  final String img;
+
   final double radio;
 
   @override
@@ -253,15 +275,18 @@ class BankCard extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radio),
-        color: Colors.yellow.withOpacity(0.75),
+        image: DecorationImage(
+          image: AssetImage(img),
+          fit: BoxFit.cover,
+        ),
       ),
       child: Container(
-        color: Colors.yellow,
         child: Text(
-          text ?? '-',
+          text,
           style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w500,
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
         ),
       ),
