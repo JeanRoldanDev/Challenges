@@ -7,6 +7,77 @@ class DataW {
         History(user: User.listUser[4], postLength: 3),
         History(user: User.listUser[5], postLength: 3),
       ];
+
+  static List<Chat> get listChats => [
+        Chat(
+          user: User.listUser[4],
+          message: '¡Hola Mao! ¿Nos vemos después del trabajo?',
+          updateLast: '11:00 am',
+          status: false,
+        ),
+        Chat(
+          user: User.listUser[5],
+          message: 'Debo contarles sobre mi canal de nuevas tecnologias',
+          updateLast: '10:00 am',
+          status: true,
+        ),
+        Chat(
+          user: User.listUser[6],
+          message: 'Sí, puedo hacerte esto en la semana',
+          updateLast: '1 hour ago',
+          status: true,
+        ),
+        Chat(
+          user: User.listUser[7],
+          message: 'Por cierto, ¿no viste a mi perro …',
+          updateLast: '1 day ago',
+          status: false,
+        ),
+        Chat(
+          user: User.listUser[8],
+          message: 'Estoy muy emocionado',
+          updateLast: '3 hours ago',
+          status: false,
+        ),
+        Chat(
+          user: User.listUser[9],
+          message: 'El fin de semana podemos salir',
+          updateLast: '4 hours ago',
+          status: false,
+        ),
+        Chat(
+          user: User.listUser[1],
+          message: 'Genial vamos a programar',
+          updateLast: '4 hours ago',
+          status: false,
+        ),
+        Chat(
+          user: User.listUser[2],
+          message: 'que mas ve..!',
+          updateLast: '2 hours ago',
+          status: false,
+        ),
+        Chat(
+          user: User.listUser[3],
+          message: 'Que haces pe!',
+          updateLast: '2 hours ago',
+          status: false,
+        ),
+      ];
+}
+
+class Chat {
+  final User user;
+  final String message;
+  final String updateLast;
+  final bool status;
+
+  Chat({
+    required this.user,
+    required this.message,
+    required this.status,
+    required this.updateLast,
+  });
 }
 
 class Groups {
@@ -65,7 +136,7 @@ class User {
           imgProfile: '$_path/p3_2.jpg',
           name: 'Mauricio',
           surname: 'Lopez',
-          status: true,
+          status: false,
         ),
         User(
           id: 4,
@@ -81,7 +152,7 @@ class User {
           imgProfile: '$_path/p5_2.jpg',
           name: 'Jose',
           surname: 'Loor',
-          status: true,
+          status: false,
         ),
         User(
           id: 6,
@@ -105,7 +176,7 @@ class User {
           imgProfile: '$_path/p8_2.jpg',
           name: 'Lis',
           surname: 'Rengifo',
-          status: true,
+          status: false,
         ),
         User(
           id: 9,
@@ -113,7 +184,7 @@ class User {
           imgProfile: '$_path/p9_2.jpg',
           name: 'Jeanmartin',
           surname: 'Pachas',
-          status: true,
+          status: false,
         ),
         User(
           id: 10,
@@ -121,7 +192,7 @@ class User {
           imgProfile: '$_path/p10_2.jpg',
           name: 'Diego',
           surname: 'Velasquez',
-          status: true,
+          status: false,
         ),
       ];
 }

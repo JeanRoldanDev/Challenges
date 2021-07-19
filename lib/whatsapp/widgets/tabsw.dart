@@ -56,14 +56,18 @@ class BtnTab extends StatelessWidget {
                 child: FittedBox(
                   child: Text(
                     text,
-                    style: Helpers.txtBtnTabs(status),
+                    style: status
+                        ? Helpers.txtDefault.copyWith(
+                            color: Colors.white,
+                          )
+                        : Helpers.txtDefault,
                   ),
                 ),
                 padding: EdgeInsets.all(10),
                 alignment: Alignment.center,
                 borderRadius: BorderRadius.circular(50),
                 minSize: 0,
-                color: status ? Helpers.green_color : Colors.white,
+                color: status ? Helpers.greenColor : Colors.white,
                 onPressed: ontap,
               ),
             ),
@@ -77,7 +81,7 @@ class BtnTab extends StatelessWidget {
                     width: 20,
                     height: 20,
                     decoration: BoxDecoration(
-                      color: Helpers.green_color,
+                      color: Helpers.greenColor,
                       border: Border.all(color: Colors.white, width: 1.5),
                       shape: BoxShape.circle,
                     ),

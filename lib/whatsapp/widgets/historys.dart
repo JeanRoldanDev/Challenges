@@ -11,7 +11,7 @@ class Historys extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 100,
       child: ListView.builder(
         itemCount: DataW.listHistory.length,
         scrollDirection: Axis.horizontal,
@@ -20,14 +20,14 @@ class Historys extends StatelessWidget {
         itemBuilder: (__, index) {
           final history = DataW.listHistory[index];
           return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 2),
+            margin: const EdgeInsets.only(right: 15),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 60,
+                  height: 60,
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
@@ -39,15 +39,17 @@ class Historys extends StatelessWidget {
                         blankLength: 4,
                         numLines: history.postLength,
                         child: CircleAvatar(
-                          backgroundColor: Helpers.greyLigth_color,
+                          minRadius: 30,
+                          maxRadius: 30,
+                          backgroundColor: Helpers.greyLigthColor,
                           backgroundImage: AssetImage(history.user.img),
                         ),
                       ),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(
-                          width: 12,
-                          height: 12,
+                          width: 20,
+                          height: 20,
                           margin: EdgeInsets.only(bottom: 6),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -58,7 +60,7 @@ class Historys extends StatelessWidget {
                             ),
                           ),
                           child: CircleAvatar(
-                            backgroundColor: Helpers.greyLigth_color,
+                            backgroundColor: Helpers.greyLigthColor,
                             backgroundImage:
                                 AssetImage(history.user.imgProfile),
                           ),
@@ -67,9 +69,10 @@ class Historys extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(height: 5),
                 Text(
                   history.user.name,
-                  style: Helpers.txtHistory_style,
+                  style: Helpers.txtHistoryStyle,
                 )
               ],
             ),
