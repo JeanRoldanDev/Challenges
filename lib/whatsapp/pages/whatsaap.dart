@@ -6,7 +6,7 @@ import 'package:challenges/whatsapp/pages/chats_page.dart';
 import 'package:challenges/whatsapp/pages/groups_page.dart';
 import 'package:challenges/whatsapp/pages/status_page.dart';
 import 'package:challenges/whatsapp/widgets/appbarw.dart';
-import 'package:challenges/whatsapp/widgets/buttom_circle.dart';
+import 'package:challenges/whatsapp/widgets/button_circle.dart';
 import 'package:challenges/whatsapp/widgets/historys.dart';
 import 'package:challenges/whatsapp/widgets/tabsw.dart';
 import 'package:flutter/cupertino.dart';
@@ -74,6 +74,7 @@ class _WhatsappState extends State<Whatsapp> {
                 onPageChanged: (indexPage) {
                   pageIndex.value = indexPage;
                 },
+                itemCount: 4,
                 itemBuilder: (_, int index) {
                   switch (index) {
                     case 0:
@@ -182,7 +183,7 @@ class _WhatsappState extends State<Whatsapp> {
                                   children: [
                                     Column(
                                       children: [
-                                        ButtomCircle(
+                                        ButtonCircle(
                                           onPressed: () {},
                                           icon: CupertinoIcons.chat_bubble_text,
                                           size: 70,
@@ -197,7 +198,7 @@ class _WhatsappState extends State<Whatsapp> {
                                     ),
                                     Column(
                                       children: [
-                                        ButtomCircle(
+                                        ButtonCircle(
                                           onPressed: () {},
                                           icon: CupertinoIcons.person_2,
                                           size: 70,
@@ -212,7 +213,7 @@ class _WhatsappState extends State<Whatsapp> {
                                     ),
                                     Column(
                                       children: [
-                                        ButtomCircle(
+                                        ButtonCircle(
                                           onPressed: () {},
                                           icon: Icons.update_outlined,
                                           size: 70,

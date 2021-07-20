@@ -1,7 +1,7 @@
 import 'package:challenges/whatsapp/data.dart';
 import 'package:challenges/whatsapp/helpers.dart';
 import 'package:challenges/whatsapp/pages/chat_page.dart';
-import 'package:challenges/whatsapp/widgets/buttom_circle.dart';
+import 'package:challenges/whatsapp/widgets/button_circle.dart';
 import 'package:challenges/widgets/navigation/right_to_left_route.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +36,7 @@ class ChatsPage extends StatelessWidget {
                   ],
                 ),
               ),
-              ButtomCircle(
+              ButtonCircle(
                 icon: Icons.archive,
                 backgroundColor: Colors.transparent,
                 onPressed: () {},

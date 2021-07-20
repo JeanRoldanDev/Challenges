@@ -1,11 +1,74 @@
+import 'dart:math';
+
+const _path = 'assets/images/2_challenge_whatsapp';
+const _pathHistorys = 'assets/images/2_challenge_whatsapp/historys';
+
 class DataW {
+  static int next(int min, int max) {
+    return min + Random().nextInt(max - min);
+  }
+
   static List<History> get listHistory => [
-        History(user: User.listUser[0], postLength: 10),
-        History(user: User.listUser[1], postLength: 5),
-        History(user: User.listUser[2], postLength: 50),
-        History(user: User.listUser[3], postLength: 0),
-        History(user: User.listUser[4], postLength: 3),
-        History(user: User.listUser[5], postLength: 3),
+        History(
+          user: User.listUser[0],
+          posts: [
+            '$_pathHistorys/1.jpg',
+            '$_pathHistorys/2.jpg',
+            '$_pathHistorys/3.jpg',
+            '$_pathHistorys/4.jpg',
+          ],
+        ),
+        History(
+          user: User.listUser[1],
+          posts: [
+            '$_pathHistorys/5.jpg',
+            '$_pathHistorys/6.jpg',
+            '$_pathHistorys/7.jpg',
+            '$_pathHistorys/8.jpg',
+            '$_pathHistorys/9.jpg',
+          ],
+        ),
+        History(
+          user: User.listUser[2],
+          posts: [
+            '$_pathHistorys/10.jpg',
+            '$_pathHistorys/11.jpg',
+            '$_pathHistorys/12.jpg',
+          ],
+        ),
+        History(
+          user: User.listUser[3],
+          posts: [
+            '$_pathHistorys/13.jpg',
+            '$_pathHistorys/14.jpg',
+            '$_pathHistorys/15.jpg',
+            '$_pathHistorys/16.jpg',
+          ],
+        ),
+        History(
+          user: User.listUser[4],
+          posts: [
+            '$_pathHistorys/11.jpg',
+            '$_pathHistorys/14.jpg',
+          ],
+        ),
+        History(
+          user: User.listUser[6],
+          posts: [
+            '$_pathHistorys/15.jpg',
+            '$_pathHistorys/3.jpg',
+            '$_pathHistorys/16.jpg',
+          ],
+        ),
+        History(
+          user: User.listUser[7],
+          posts: [
+            '$_pathHistorys/4.jpg',
+            '$_pathHistorys/1.jpg',
+            '$_pathHistorys/3.jpg',
+            '$_pathHistorys/2.jpg',
+          ],
+        ),
       ];
 
   static List<Chat> get listChats => [
@@ -64,6 +127,41 @@ class DataW {
           status: false,
         ),
       ];
+
+  static List<Group> get listGroups => [
+        Group(
+          title: 'Comunidad Fluter Español',
+          users: [
+            User.listUser[1],
+            User.listUser[2],
+            User.listUser[3],
+            User.listUser[4],
+            User.listUser[5],
+            User.listUser[9],
+          ],
+          img: '$_path/p1_1.jpg',
+        ),
+        Group(
+          title: 'Comunidad Fluter Español Comunidad Fluter Español',
+          users: [
+            User.listUser[1],
+            User.listUser[2],
+            User.listUser[3],
+            User.listUser[4],
+          ],
+          img: '$_path/p1_1.jpg',
+        ),
+        Group(
+          title: 'Comunidad Fluter Español Comunidad Fluter Español',
+          users: [
+            User.listUser[1],
+            User.listUser[2],
+            User.listUser[3],
+            User.listUser[4],
+          ],
+          img: '$_path/p1_1.jpg',
+        ),
+      ];
 }
 
 class Chat {
@@ -80,19 +178,19 @@ class Chat {
   });
 }
 
-class Groups {
+class Group {
   final String title;
   final String img;
   final List<User> users;
 
-  Groups({required this.title, required this.img, required this.users});
+  Group({required this.title, required this.img, required this.users});
 }
 
 class History {
   final User user;
-  final int postLength;
+  final List<String> posts;
 
-  History({required this.user, required this.postLength});
+  History({required this.user, required this.posts});
 }
 
 class User {
@@ -112,7 +210,6 @@ class User {
     required this.status,
   });
 
-  static const _path = 'assets/images/2_challenge_whatsapp';
   static List<User> get listUser => [
         User(
           id: 1,

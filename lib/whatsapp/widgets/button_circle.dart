@@ -1,20 +1,22 @@
 import 'package:challenges/whatsapp/helpers.dart';
 import 'package:flutter/material.dart';
 
-class ButtomCircle extends StatelessWidget {
-  const ButtomCircle({
+class ButtonCircle extends StatelessWidget {
+  const ButtonCircle({
     Key? key,
     required this.onPressed,
     required this.icon,
     this.backgroundColor = Helpers.greyLigthColor,
     this.size = 35,
     this.iconSize = 25,
+    this.iconColor = Helpers.principalColor,
   }) : super(key: key);
   final VoidCallback? onPressed;
   final IconData icon;
   final Color backgroundColor;
   final double size;
   final double iconSize;
+  final Color iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +38,7 @@ class ButtomCircle extends StatelessWidget {
         icon: Icon(
           icon,
           size: iconSize,
+          color: iconColor,
         ),
       ),
     );

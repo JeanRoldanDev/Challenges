@@ -1,5 +1,5 @@
 import 'package:challenges/whatsapp/helpers.dart';
-import 'package:challenges/whatsapp/widgets/buttom_circle.dart';
+import 'package:challenges/whatsapp/widgets/button_circle.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -28,15 +28,15 @@ class AppBarW extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       backgroundColor: Colors.white,
       actions: [
-        ButtomCircle(
+        ButtonCircle(
           onPressed: () {},
           icon: CupertinoIcons.moon_fill,
         ),
-        ButtomCircle(
+        ButtonCircle(
           onPressed: () {},
           icon: CupertinoIcons.search,
         ),
-        ButtomCircle(
+        ButtonCircle(
           onPressed: () {},
           icon: Icons.more_horiz,
         ),

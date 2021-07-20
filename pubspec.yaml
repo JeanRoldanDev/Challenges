@@ -25,6 +25,7 @@ flutter:
   assets:
     - assets/images/1_reto_dash_speedometer/
     - assets/images/2_challenge_whatsapp/
+    - assets/images/2_challenge_whatsapp/historys/
     - assets/images/3_challenge_diego/
   #   - images/a_dot_ham.jpeg
 

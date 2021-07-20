@@ -36,8 +36,8 @@ class Historys extends StatelessWidget {
                         strokeColor: Colors.blue,
                         strokeCap: StrokeCap.round,
                         strokeWidth: 2,
-                        blankLength: 4,
-                        numLines: history.postLength,
+                        blankLength: 5,
+                        numLines: history.posts.length,
                         child: CircleAvatar(
                           minRadius: 30,
                           maxRadius: 30,
