@@ -27,6 +27,8 @@ flutter:
     - assets/images/2_challenge_whatsapp/
     - assets/images/2_challenge_whatsapp/historys/
     - assets/images/3_challenge_diego/
+    - assets/images/4_car_selling/
+    - assets/images/4_car_selling/icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
