@@ -47,7 +47,12 @@ flutter:
       fonts:
         - asset: assets/fonts/konnect/KonnectRegular.otf
         - asset: assets/fonts/konnect/KonnectBold.otf
-
+    - family: pulp_display
+      fonts:
+        - asset: assets/fonts/pulp_display/PulpDisplay-Regular.ttf
+        - asset: assets/fonts/pulp_display/PulpDisplay-Bold.ttf
+        - asset: assets/fonts/pulp_display/PulpDisplay-Medium.ttf
+        - asset: assets/fonts/pulp_display/PulpDisplay-Light.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
