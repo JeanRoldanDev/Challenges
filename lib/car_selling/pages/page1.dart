@@ -50,8 +50,11 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                     },
                     onTapItem: (item) {
                       print(item);
-                      Navigator.push(
-                          context, CupertinoPageRoute(builder: (_) => Page2()));
+                      Navigator.of(context).push<bool?>(
+                        CupertinoPageRoute<bool?>(
+                          builder: (_) => Page2(),
+                        ),
+                      );
                     },
                   ),
                   Align(
@@ -692,9 +695,6 @@ class Curve1 extends CustomClipper<Path> {
     path.quadraticBezierTo(size.width / 2, ax, size.width, 0);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
-    // path.quadraticBezierTo(size.width * 0.25, size.height, 0, size.height - ax);
-    //  path.lineTo(size.width, 0);
-//
     path.close();
     return path;
   }

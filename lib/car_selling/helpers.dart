@@ -12,7 +12,7 @@ class Helpers {
     fontSize: 11,
   );
 
-  static get font => _konnectFont;
+  static String get font => _konnectFont;
 
   static const TextStyle txtBtnTabsNotifications = TextStyle(
     color: Colors.white,
