@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'Pulp Display';
+    src: url('PulpDisplay-MediumItalic.eot');
+    src: local('Pulp Display Medium Italic'), local('PulpDisplay-MediumItalic'),
+        url('PulpDisplay-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-MediumItalic.woff2') format('woff2'),
+        url('PulpDisplay-MediumItalic.woff') format('woff'),
+        url('PulpDisplay-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display';
+    src: url('PulpDisplay-Bold.eot');
+    src: local('Pulp Display Bold'), local('PulpDisplay-Bold'),
+        url('PulpDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-Bold.woff2') format('woff2'),
+        url('PulpDisplay-Bold.woff') format('woff'),
+        url('PulpDisplay-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display';
+    src: url('PulpDisplay-BoldItalic.eot');
+    src: local('Pulp Display Bold Italic'), local('PulpDisplay-BoldItalic'),
+        url('PulpDisplay-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-BoldItalic.woff2') format('woff2'),
+        url('PulpDisplay-BoldItalic.woff') format('woff'),
+        url('PulpDisplay-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display Extra';
+    src: url('PulpDisplay-ExtraBold.eot');
+    src: local('Pulp Display Extra Bold'), local('PulpDisplay-ExtraBold'),
+        url('PulpDisplay-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-ExtraBold.woff2') format('woff2'),
+        url('PulpDisplay-ExtraBold.woff') format('woff'),
+        url('PulpDisplay-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display';
+    src: url('PulpDisplay-Light.eot');
+    src: local('Pulp Display Light'), local('PulpDisplay-Light'),
+        url('PulpDisplay-Light.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-Light.woff2') format('woff2'),
+        url('PulpDisplay-Light.woff') format('woff'),
+        url('PulpDisplay-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display';
+    src: url('PulpDisplay-Medium.eot');
+    src: local('Pulp Display Medium'), local('PulpDisplay-Medium'),
+        url('PulpDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-Medium.woff2') format('woff2'),
+        url('PulpDisplay-Medium.woff') format('woff'),
+        url('PulpDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display Extra';
+    src: url('PulpDisplay-ExtraLight.eot');
+    src: local('Pulp Display Extra Light'), local('PulpDisplay-ExtraLight'),
+        url('PulpDisplay-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-ExtraLight.woff2') format('woff2'),
+        url('PulpDisplay-ExtraLight.woff') format('woff'),
+        url('PulpDisplay-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display Extra';
+    src: url('PulpDisplay-ExtraBoldItalic.eot');
+    src: local('Pulp Display Extra Bold Italic'), local('PulpDisplay-ExtraBoldItalic'),
+        url('PulpDisplay-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-ExtraBoldItalic.woff2') format('woff2'),
+        url('PulpDisplay-ExtraBoldItalic.woff') format('woff'),
+        url('PulpDisplay-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display';
+    src: url('PulpDisplay-RegularItalic.eot');
+    src: local('Pulp Display Italic'), local('PulpDisplay-RegularItalic'),
+        url('PulpDisplay-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-RegularItalic.woff2') format('woff2'),
+        url('PulpDisplay-RegularItalic.woff') format('woff'),
+        url('PulpDisplay-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display Extra';
+    src: url('PulpDisplay-ExtraLightItalic.eot');
+    src: local('Pulp Display Extra Light Italic'), local('PulpDisplay-ExtraLightItalic'),
+        url('PulpDisplay-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-ExtraLightItalic.woff2') format('woff2'),
+        url('PulpDisplay-ExtraLightItalic.woff') format('woff'),
+        url('PulpDisplay-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display';
+    src: url('PulpDisplay-LightItalic.eot');
+    src: local('Pulp Display Light Italic'), local('PulpDisplay-LightItalic'),
+        url('PulpDisplay-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-LightItalic.woff2') format('woff2'),
+        url('PulpDisplay-LightItalic.woff') format('woff'),
+        url('PulpDisplay-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display';
+    src: url('PulpDisplay-Regular.eot');
+    src: local('Pulp Display'), local('PulpDisplay-Regular'),
+        url('PulpDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-Regular.woff2') format('woff2'),
+        url('PulpDisplay-Regular.woff') format('woff'),
+        url('PulpDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display Semi';
+    src: url('PulpDisplay-SemiBoldItalic.eot');
+    src: local('Pulp Display Semi Bold Italic'), local('PulpDisplay-SemiBoldItalic'),
+        url('PulpDisplay-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-SemiBoldItalic.woff2') format('woff2'),
+        url('PulpDisplay-SemiBoldItalic.woff') format('woff'),
+        url('PulpDisplay-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display Outline';
+    src: url('PulpDisplay-Outline.eot');
+    src: local('Pulp Display Outline'), local('PulpDisplay-Outline'),
+        url('PulpDisplay-Outline.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-Outline.woff2') format('woff2'),
+        url('PulpDisplay-Outline.woff') format('woff'),
+        url('PulpDisplay-Outline.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display Outline';
+    src: url('PulpDisplay-OutlineItalic.eot');
+    src: local('Pulp Display Outline Italic'), local('PulpDisplay-OutlineItalic'),
+        url('PulpDisplay-OutlineItalic.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-OutlineItalic.woff2') format('woff2'),
+        url('PulpDisplay-OutlineItalic.woff') format('woff'),
+        url('PulpDisplay-OutlineItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pulp Display Semi';
+    src: url('PulpDisplay-SemiBold.eot');
+    src: local('Pulp Display Semi Bold'), local('PulpDisplay-SemiBold'),
+        url('PulpDisplay-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('PulpDisplay-SemiBold.woff2') format('woff2'),
+        url('PulpDisplay-SemiBold.woff') format('woff'),
+        url('PulpDisplay-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+

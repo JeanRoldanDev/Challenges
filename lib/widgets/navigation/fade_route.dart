@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 class FadeRoute extends PageRouteBuilder {
-  final Widget page;
-  final Duration duration;
   FadeRoute({
     required this.page,
     this.duration = const Duration(milliseconds: 600),
@@ -13,4 +11,7 @@ class FadeRoute extends PageRouteBuilder {
           ),
           transitionDuration: duration,
         );
+
+  final Widget page;
+  final Duration duration;
 }

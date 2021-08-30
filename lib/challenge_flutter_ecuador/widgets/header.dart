@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:challenges/challenge_flutter_ecuador_one/helper.dart';
+import '../helpers/helpers.dart';
 import 'package:flutter/material.dart';
 
 extension MyHours on DateTime {
@@ -54,7 +54,7 @@ class _HeaderTopState extends State<HeaderTop> {
           Align(
             alignment: Alignment.centerLeft,
             child: Image.asset(
-              Helpers.bmwLogoImg,
+              Images.bmwLogoImg,
               width: 50,
             ),
           ),
@@ -70,7 +70,8 @@ class _HeaderTopState extends State<HeaderTop> {
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
               child: ValueListenableBuilder<String>(
                 valueListenable: currentT,
-                builder: (_, value, __) => Text(value, style: Helpers.txtHour),
+                builder: (_, value, __) =>
+                    Text(value, style: TextStyles.txtHour),
               ),
             ),
           ),
@@ -84,13 +85,13 @@ class _HeaderTopState extends State<HeaderTop> {
                     width: 40,
                     child: CircleAvatar(
                       backgroundColor: Colors.grey,
-                      backgroundImage: AssetImage(Helpers.profileImg),
+                      backgroundImage: AssetImage(Images.profileImg),
                     ),
                   ),
                   SizedBox(width: 3),
                   Text(
                     'Jean',
-                    style: Helpers.txtNameProfile,
+                    style: TextStyles.txtNameProfile,
                   ),
                   Icon(
                     Icons.arrow_drop_down_rounded,

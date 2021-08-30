@@ -1,6 +1,7 @@
-import 'package:challenges/challenge_flutter_ecuador_one/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../helpers/helpers.dart';
 
 class Footer extends StatelessWidget {
   const Footer({
@@ -13,26 +14,35 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: const _FooterBackgroundPainter(),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10,
-          vertical: 5,
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 70,
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          color: Colors.blue.withOpacity(.5),
+          blurRadius: 50,
         ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const _Gasoline(),
-            ValueListenableBuilder<double>(
-              valueListenable: _speed,
-              builder: (_, value, __) {
-                return _SpeedNumKm(km: value);
-              },
-            ),
-            const _Temperature(),
-          ],
+      ]),
+      child: CustomPaint(
+        painter: const _FooterBackgroundPainter(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 5,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const _Gasoline(),
+              ValueListenableBuilder<double>(
+                valueListenable: _speed,
+                builder: (_, value, __) {
+                  return _SpeedNumKm(km: value);
+                },
+              ),
+              const _Temperature(),
+            ],
+          ),
         ),
       ),
     );
@@ -48,55 +58,46 @@ class _Gasoline extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SvgPicture.asset(
-            Helpers.stationSVG,
+            Vectors.stationSVG,
             width: 20,
-            alignment: Alignment.center,
             color: Colors.blue,
           ),
           SvgPicture.asset(
-            Helpers.dropFillSVG,
+            Vectors.dropFillSVG,
             width: 13,
-            alignment: Alignment.center,
             color: Colors.blue,
           ),
           SvgPicture.asset(
-            Helpers.dropFillSVG,
+            Vectors.dropFillSVG,
             width: 13,
-            alignment: Alignment.center,
             color: Colors.blue,
           ),
           SvgPicture.asset(
-            Helpers.dropFillSVG,
+            Vectors.dropFillSVG,
             width: 13,
-            alignment: Alignment.center,
             color: Colors.blue,
           ),
           SvgPicture.asset(
-            Helpers.dropFillSVG,
+            Vectors.dropFillSVG,
             width: 13,
-            alignment: Alignment.center,
             color: Colors.blue,
           ),
           SvgPicture.asset(
-            Helpers.dropFillSVG,
+            Vectors.dropFillSVG,
             width: 13,
-            alignment: Alignment.center,
             color: Colors.grey.shade400,
           ),
           SvgPicture.asset(
-            Helpers.dropFillSVG,
+            Vectors.dropFillSVG,
             width: 13,
-            alignment: Alignment.center,
             color: Colors.grey.shade400,
           ),
           SvgPicture.asset(
-            Helpers.dropFillSVG,
+            Vectors.dropFillSVG,
             width: 13,
-            alignment: Alignment.center,
             color: Colors.grey.shade400,
           ),
         ],
@@ -118,13 +119,13 @@ class _SpeedNumKm extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            '${km.toStringAsFixed(2)}',
-            style: Helpers.txtNumKmStyle,
+            km.toStringAsFixed(2),
+            style: TextStyles.txtNumKmStyle,
           ),
-          FittedBox(
+          const FittedBox(
             child: Text(
               'km/h',
-              style: Helpers.txtKmhStyle,
+              style: TextStyles.txtKmhStyle,
             ),
           ),
         ],
@@ -142,19 +143,17 @@ class _Temperature extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SvgPicture.asset(
-            Helpers.oilIndicatorSVG,
+            Vectors.oilIndicatorSVG,
             width: 20,
-            alignment: Alignment.center,
             color: Colors.blue,
           ),
           const SizedBox(width: 5),
-          Text(
+          const Text(
             '70°C',
-            style: Helpers.txtDegreeCentigrade,
+            style: TextStyles.txtDegreeCentigrade,
           ),
           Container(
             width: 70,
@@ -175,9 +174,9 @@ class _Temperature extends StatelessWidget {
               ),
             ),
           ),
-          Text(
+          const Text(
             '100°C',
-            style: Helpers.txtDegreeCentigrade,
+            style: TextStyles.txtDegreeCentigrade,
           ),
         ],
       ),
@@ -191,23 +190,25 @@ class _FooterBackgroundPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    final heightCurve = size.height * 0.3;
+
     canvas.save();
-    Paint paint = Paint();
-    paint.color = color;
-    var path = Path();
-    var heightCurve = size.height * 0.3;
-    path.moveTo(0, heightCurve);
-    path.quadraticBezierTo(
-      size.width / 2,
-      -heightCurve,
-      size.width,
-      heightCurve,
-    );
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.close();
-    canvas.drawPath(path, paint);
-    canvas.restore();
+    final paint = Paint()..color = color;
+    final path = Path()
+      ..moveTo(0, heightCurve)
+      ..quadraticBezierTo(
+        size.width / 2,
+        -heightCurve,
+        size.width,
+        heightCurve,
+      )
+      ..lineTo(size.width, size.height)
+      ..lineTo(0, size.height)
+      ..close();
+
+    canvas
+      ..drawPath(path, paint)
+      ..restore();
   }
 
   @override
