@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 SystemUiOverlayStyle get systemUI => SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Colors.black,
+      statusBarColor: Colors.transparent,
       statusBarBrightness: Brightness.light,
       statusBarIconBrightness: Brightness.light,
       systemNavigationBarColor: Colors.black,
-      systemNavigationBarDividerColor: Colors.red,
+      systemNavigationBarDividerColor: Colors.transparent,
       systemNavigationBarIconBrightness: Brightness.light,
     );

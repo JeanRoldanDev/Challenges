@@ -31,7 +31,7 @@ flutter:
     - assets/images/4_car_selling/
     - assets/images/4_car_selling/icons/
     - assets/images/6_streaming/
-
+    - assets/images/6_streaming/icons/
 
   fonts:
     - family: Poppins
