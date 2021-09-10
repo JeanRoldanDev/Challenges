@@ -1,3 +1,4 @@
+import 'package:challenges/Streaming/streaming.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Flutter Challenges',
       debugShowCheckedModeBanner: false,
-      home: _Principal(),
+      home: StreamingApp(),
     );
   }
 }

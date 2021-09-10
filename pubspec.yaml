@@ -30,6 +30,8 @@ flutter:
     - assets/images/3_challenge_diego/
     - assets/images/4_car_selling/
     - assets/images/4_car_selling/icons/
+    - assets/images/6_streaming/
+
 
   fonts:
     - family: Poppins
