@@ -27,22 +27,7 @@ class StreamingApp extends StatelessWidget {
               fit: BoxFit.fitWidth,
             ),
           ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: SizedBox(
-              height: kBottomNavigationBarHeight,
-              child: CustomPaint(
-                painter: NavigationBarPainter(
-                  widthCenter: MediaQuery.of(context).size.width * 0.20,
-                ),
-                child: Container(
-                    // color: Colors.amber.withOpacity(0.20),
-                    ),
-              ),
-            ),
-          ),
+
           // Positioned(
           //   bottom: 0,
           //   left: 0,
@@ -88,10 +73,20 @@ class StreamingApp extends StatelessWidget {
           //       ],
           //     ),
           //   ),
-          // ),
+          // // ),
+          Positioned(
+            bottom: -30,
+            left: 0,
+            right: 0,
+            child: Image.asset(
+              'assets/images/6_streaming/Captura.JPG',
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.fitWidth,
+            ),
+          ),
 
           Positioned(
-            bottom: 40,
+            bottom: MediaQuery.of(context).size.height * 0.09,
             child: Container(
               width: MediaQuery.of(context).size.width,
               alignment: Alignment.center,
@@ -109,6 +104,22 @@ class StreamingApp extends StatelessWidget {
               ),
             ),
           ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height * 0.11,
+              child: CustomPaint(
+                painter: NavigationBarPainter(
+                  widthCenter: MediaQuery.of(context).size.width * 0.15,
+                ),
+                child: Container(
+                    // color: Colors.amber.withOpacity(0.20),
+                    ),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -123,12 +134,13 @@ class NavigationBarPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     canvas.save();
     final paint = Paint();
+    // paint.color = CColors.purple.withOpacity(0.60);
+    paint.color = CColors.purple;
+    paint.maskFilter = MaskFilter.blur(BlurStyle.inner, 20);
 
-    paint.color = Colors.blue;
-
-    final p1 = (size.width / 2) - (widthCenter / 2);
+    final p1 = (size.width / 2) - (widthCenter / 2) - (size.width * 0.03);
     final p2 = size.width / 2;
-    final p3 = (size.width / 2) + (widthCenter / 2);
+    final p3 = (size.width / 2) + (widthCenter / 2) + (size.width * 0.03);
 
     final path = Path();
     // path.addArc(
@@ -140,7 +152,7 @@ class NavigationBarPainter extends CustomPainter {
     //   -((180 * math.pi) / 180),
     // );
     path.lineTo(p1, 0);
-    path.lineTo(p2, size.height / 2);
+    path.lineTo(p2, size.height * 0.30);
     path.lineTo(p3, 0);
     path.lineTo(size.width, 0);
     path.lineTo(size.width, size.height);
