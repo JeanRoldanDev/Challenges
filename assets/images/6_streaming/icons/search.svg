@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53">
-  <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(1.5 1.5)">
-    <path id="Trazado_78388" data-name="Trazado 78388" d="M25.854,3A22.784,22.784,0,1,1,4.8,34.68,22.817,22.817,0,0,1,25.854,3Zm0,42.6A19.784,19.784,0,1,0,7.559,18.1,19.817,19.817,0,0,0,25.854,45.6Z" transform="translate(-4.5 -4.5)"/>
-    <path id="Trazado_78389" data-name="Trazado 78389" d="M34.794,36.275a1.5,1.5,0,0,1-1.06-.438l-9.819-9.8a1.5,1.5,0,0,1,2.119-2.123l9.819,9.8a1.5,1.5,0,0,1-1.06,2.562Z" transform="translate(15.206 15.225)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57">
+  <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(-1 -1)">
+    <path id="Trazado_78388" data-name="Trazado 78388" d="M27.718,1C42.45,1,54.435,11.665,54.435,24.774S42.45,48.548,27.718,48.548,1,37.883,1,24.774,12.985,1,27.718,1Zm0,40.548c10.872,0,19.718-7.525,19.718-16.774S38.59,8,27.718,8h0C16.845,8,8,15.525,8,24.774S16.845,41.548,27.718,41.548Z" transform="translate(0 0)"/>
+    <path id="Trazado_78389" data-name="Trazado 78389" d="M39.9,43.183a3.489,3.489,0,0,1-2.465-1.015L25.636,30.46a3.5,3.5,0,0,1,4.93-4.97L42.369,37.2A3.5,3.5,0,0,1,39.9,43.183Z" transform="translate(14.596 14.817)"/>
   </g>
 </svg>

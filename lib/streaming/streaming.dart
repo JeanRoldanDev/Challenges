@@ -1,166 +1,310 @@
-import 'package:challenges/streaming/helpers/helpers.dart';
+import 'dart:ui' as ui;
+
+import 'package:challenges/streaming/helpers/colors.dart';
 import 'package:challenges/streaming/helpers/images.dart';
+import 'package:challenges/streaming/helpers/theme.dart';
+import 'package:challenges/streaming/pages/home.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class StreamingApp extends StatelessWidget {
-  const StreamingApp({Key? key}) : super(key: key);
+  StreamingApp({Key? key}) : super(key: key);
+
+  final PageController pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(systemUI);
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Image.asset(
-            Images.bg1,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(Images.bg1),
             fit: BoxFit.cover,
           ),
-          Positioned(
-            top: -50,
-            left: 0,
-            right: 0,
-            child: Image.asset(
-              Images.tt1,
-              fit: BoxFit.fitWidth,
+        ),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            PageView.builder(
+              itemCount: 2,
+              controller: pageController,
+              itemBuilder: (_, indexPage) {
+                switch (indexPage) {
+                  case 0:
+                    return const HomePage();
+                  case 1:
+                    return const ExplorePage();
+                  default:
+                    return const SizedBox.shrink();
+                }
+              },
             ),
-          ),
-
-          // Positioned(
-          //   bottom: 0,
-          //   left: 0,
-          //   right: 0,
-          //   child: SizedBox(
-          //     height: kBottomNavigationBarHeight + 10,
-          //     child: Stack(
-          //       fit: StackFit.expand,
-          //       children: [
-          //         Positioned(
-          //           left: 0,
-          //           right: 0,
-          //           top: 0,
-          //           child: Opacity(
-          //             opacity: 0.40,
-          //             child: Image.asset(
-          //               Images.tabbar,
-          //               fit: BoxFit.fitHeight,
-          //             ),
-          //           ),
-          //         ),
-          //         Row(
-          //           children: [
-          //             NavigationBar(
-          //               assetName: Vectors.home,
-          //               status: true,
-          //             ),
-          //             NavigationBar(
-          //               assetName: Vectors.search,
-          //               status: true,
-          //             ),
-          //             SizedBox(width: MediaQuery.of(context).size.width * 0.18),
-          //             NavigationBar(
-          //               assetName: Vectors.explorer,
-          //               status: true,
-          //             ),
-          //             NavigationBar(
-          //               assetName: Vectors.notification,
-          //               status: true,
-          //             ),
-          //           ],
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // // ),
-          Positioned(
-            bottom: -30,
-            left: 0,
-            right: 0,
-            child: Image.asset(
-              'assets/images/6_streaming/Captura.JPG',
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.fitWidth,
-            ),
-          ),
-
-          Positioned(
-            bottom: MediaQuery.of(context).size.height * 0.09,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              alignment: Alignment.center,
-              child: PhysicalModel(
-                color: Colors.transparent,
-                shadowColor: CColors.purple,
-                elevation: 10,
-                shape: BoxShape.circle,
-                child: Image.asset(
-                  Images.center,
-                  fit: BoxFit.cover,
-                  width: MediaQuery.of(context).size.width * 0.15,
-                  color: CColors.purple,
-                ),
+            Positioned(
+              top: -50,
+              left: 0,
+              right: 0,
+              child: Image.asset(
+                Images.tt1,
+                fit: BoxFit.fitWidth,
+                color: Colors.red,
               ),
             ),
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.11,
-              child: CustomPaint(
-                painter: NavigationBarPainter(
-                  widthCenter: MediaQuery.of(context).size.width * 0.15,
-                ),
-                child: Container(
-                    // color: Colors.amber.withOpacity(0.20),
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.09,
+                child: ClipPath(
+                  clipper: PathNavigationClipper(
+                    widthCenter: MediaQuery.of(context).size.width * 0.15,
+                    borderRadius: 40,
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          CColors.purple.withOpacity(0.85),
+                          CColors.purpleLigth.withOpacity(0.85),
+                        ],
+                        stops: const [0.01, 0.40],
+                      ),
                     ),
+                    child: BackdropFilter(
+                      filter: ui.ImageFilter.blur(
+                        sigmaX: 5,
+                        sigmaY: -5,
+                        tileMode: TileMode.repeated,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          children: [
+                            NavigationBar(
+                              assetName: Vectors.home,
+                              status: true,
+                            ),
+                            NavigationBar(
+                              assetName: Vectors.search,
+                            ),
+                            SizedBox(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.15),
+                            NavigationBar(
+                              assetName: Vectors.explore,
+                            ),
+                            NavigationBar(
+                              assetName: Vectors.notification,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
-        ],
+            Positioned(
+              bottom: MediaQuery.of(context).size.height * 0.07,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.center,
+                child: PhysicalModel(
+                  color: Colors.transparent,
+                  shadowColor: CColors.purple,
+                  elevation: 7,
+                  shape: BoxShape.circle,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.15,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Image.asset(
+                          Images.center,
+                          fit: BoxFit.cover,
+                          color: CColors.purple,
+                        ),
+                        Positioned(
+                          top: -26,
+                          child: SizedBox(
+                            width: 22,
+                            child: SvgPicture.asset(
+                              Vectors.streaming,
+                              fit: BoxFit.fitWidth,
+                              color: Colors.white,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-class NavigationBarPainter extends CustomPainter {
-  const NavigationBarPainter({required this.widthCenter});
+class ExplorePage extends StatelessWidget {
+  const ExplorePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Container(
+        color: Colors.red,
+        child: Column(
+          children: [
+            SizedBox(
+              height: 100,
+            ),
+            Text('Descubrir'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ItemPainter extends CustomPainter {
+  ItemPainter({
+    required this.borderRadius,
+    required this.width,
+  });
+
+  final double borderRadius;
+  final double width;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+
+    canvas.save();
+    final paint = Paint()
+      ..style = PaintingStyle.fill
+      ..color = Colors.red;
+
+    final path = Path()
+      ..moveTo(width, borderRadius)
+      ..quadraticBezierTo(width, 0, width + borderRadius, 0)
+      ..lineTo(w - borderRadius, 0)
+      ..quadraticBezierTo(w, 0, w, borderRadius)
+      ..lineTo(w, h - borderRadius)
+      ..quadraticBezierTo(w, h, w - borderRadius, h)
+      ..lineTo(borderRadius, h)
+      ..quadraticBezierTo(0, h, 0, h - borderRadius)
+      ..quadraticBezierTo(
+        0,
+        h - borderRadius - (borderRadius / 2),
+        borderRadius / 2,
+        h - borderRadius - (borderRadius / 2),
+      )
+      ..lineTo(
+          width - (borderRadius * 1.5), h - borderRadius - (borderRadius / 2))
+      ..quadraticBezierTo(
+        width,
+        h - borderRadius - (borderRadius / 2),
+        width,
+        h - (borderRadius * 2.5) - (borderRadius / 2),
+      )
+      ..close();
+    canvas
+      ..drawPath(path, paint)
+      ..restore();
+  }
+
+  @override
+  bool shouldRepaint(ItemPainter oldDelegate) => false;
+
+  @override
+  bool shouldRebuildSemantics(ItemPainter oldDelegate) => false;
+}
+
+class PathNavigationClipper extends CustomClipper<Path> {
+  const PathNavigationClipper({
+    required this.widthCenter,
+    required this.borderRadius,
+  });
   final double widthCenter;
+  final double borderRadius;
+  @override
+  Path getClip(Size size) {
+    final p1 = (size.width / 2) - (widthCenter / 2) - 13;
+    final p2 = size.width / 2;
+    final p3 = (size.width / 2) + (widthCenter / 2) + 13;
+
+    final path = Path()
+      ..moveTo(0, borderRadius)
+      ..quadraticBezierTo(0, 0, borderRadius, 0)
+      ..lineTo(p1, 0)
+      ..lineTo(p2, widthCenter * 0.50)
+      ..lineTo(p3, 0)
+      ..lineTo(size.width - borderRadius, 0)
+      ..quadraticBezierTo(size.width, 0, size.width, borderRadius)
+      ..lineTo(size.width, size.height)
+      ..lineTo(0, size.height)
+      ..close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+@Deprecated('Does not match the shape of the path')
+class NavigationBarPainter extends CustomPainter {
+  const NavigationBarPainter({
+    required this.widthCenter,
+    required this.borderRadius,
+  });
+  final double widthCenter;
+  final double borderRadius;
 
   @override
   void paint(Canvas canvas, Size size) {
     canvas.save();
-    final paint = Paint();
-    // paint.color = CColors.purple.withOpacity(0.60);
-    paint.color = CColors.purple;
-    paint.maskFilter = MaskFilter.blur(BlurStyle.inner, 20);
+    final paint = Paint()
+      ..style = PaintingStyle.fill
+      ..color = Colors.white
+      ..shader = ui.Gradient.linear(
+        Offset(size.width * 0.50, size.height * -0.70),
+        Offset(size.width * 0.50, size.height * 0.30),
+        [
+          const Color(0xffffffff).withOpacity(0.9),
+          const Color(0xff171741).withOpacity(0.9),
+        ],
+        [0, 1],
+      );
+    // ..maskFilter = const MaskFilter.blur(BlurStyle.solid, 3);
 
-    final p1 = (size.width / 2) - (widthCenter / 2) - (size.width * 0.03);
+    final p1 = (size.width / 2) - (widthCenter / 2) - 13;
     final p2 = size.width / 2;
-    final p3 = (size.width / 2) + (widthCenter / 2) + (size.width * 0.03);
+    final p3 = (size.width / 2) + (widthCenter / 2) + 13;
 
-    final path = Path();
-    // path.addArc(
-    //   Rect.fromCircle(
-    //     center: Offset((radius * radioMarkWidth) - (radioMark / 2), 0),
-    //     radius: (radioMark / 2),
-    //   ),
-    //   ((90 * math.pi) / 180),
-    //   -((180 * math.pi) / 180),
-    // );
-    path.lineTo(p1, 0);
-    path.lineTo(p2, size.height * 0.30);
-    path.lineTo(p3, 0);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-
-    path.close();
-    canvas.drawPath(path, paint);
-    canvas.restore();
+    final path = Path()
+      ..moveTo(0, borderRadius)
+      ..quadraticBezierTo(0, 0, borderRadius, 0)
+      ..lineTo(p1, 0)
+      ..lineTo(p2, widthCenter * 0.50)
+      ..lineTo(p3, 0)
+      ..lineTo(size.width - borderRadius, 0)
+      ..quadraticBezierTo(size.width, 0, size.width, borderRadius)
+      ..lineTo(size.width, size.height)
+      ..lineTo(0, size.height)
+      ..close();
+    canvas
+      ..drawPath(path, paint)
+      ..restore();
   }
 
   @override
@@ -188,8 +332,9 @@ class NavigationBar extends StatelessWidget {
         onTap: ontap,
         child: SvgPicture.asset(
           assetName,
-          width: 20,
-          color: status ? Colors.white : CColors.grey,
+          width: 23,
+          height: 23,
+          color: status ? Colors.white : CColors.purple,
         ),
       ),
     );
