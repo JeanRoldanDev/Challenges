@@ -44,13 +44,38 @@ class StreamingApp extends StatelessWidget {
               },
             ),
             Positioned(
-              top: -50,
               left: 0,
               right: 0,
-              child: Image.asset(
-                Images.tt1,
-                fit: BoxFit.fitWidth,
-                color: Colors.red,
+              child: SizedBox(
+                height: 100,
+                child: ClipPath(
+                  clipper: PathHeaderClipper(borderRadius: 40),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          CColors.purpleLigth.withOpacity(0.85),
+                          CColors.purple.withOpacity(0.85),
+                        ],
+                        stops: const [0.01, 0.40],
+                      ),
+                    ),
+                    child: BackdropFilter(
+                      filter: ui.ImageFilter.blur(
+                        sigmaX: 5,
+                        sigmaY: -5,
+                        tileMode: TileMode.repeated,
+                      ),
+                      child: Row(
+                        children: [
+                          Text('adads'),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
             Positioned(
@@ -173,6 +198,33 @@ class ExplorePage extends StatelessWidget {
       ),
     );
   }
+}
+
+class PathHeaderClipper extends CustomClipper<Path> {
+  PathHeaderClipper({
+    required this.borderRadius,
+  });
+
+  final double borderRadius;
+
+  @override
+  Path getClip(Size size) {
+    final w = size.width;
+    final h = size.height;
+
+    final path = Path()
+      ..lineTo(w, 0)
+      ..lineTo(w, h - borderRadius)
+      ..quadraticBezierTo(w, h, w - borderRadius, h)
+      ..lineTo(borderRadius, h)
+      ..quadraticBezierTo(0, h, 0, h - borderRadius)
+      ..close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
 
 class ItemPainter extends CustomPainter {
