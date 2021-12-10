@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 const paddingPage = EdgeInsets.symmetric(horizontal: 10);
 
 class Constants {
+  static const double heightHeader = 140;
   static const String path = 'assets/images/6_streaming';
 
   static const List<String> imgs = [
@@ -61,6 +62,45 @@ class Constants {
       tags: ['Acción', 'Plataformas', 'Deportes'],
     ),
   ];
+
+  static const List<GameExplorer> gamesExplorer = [
+    GameExplorer(
+      img: '$path/item1.png',
+      name: 'Fire Fire',
+      views: '18.6 K',
+    ),
+    GameExplorer(
+      img: '$path/item3.png',
+      name: 'Clash Royale',
+      views: '28.3 K',
+    ),
+    GameExplorer(
+      img: '$path/item2.png',
+      name: 'Game Over',
+      views: '14.3 K',
+    ),
+    GameExplorer(
+      img: '$path/item1.png',
+      name: 'Fire Fire',
+      views: '18.6 K',
+    ),
+    GameExplorer(
+      img: '$path/item3.png',
+      name: 'Clash Royale',
+      views: '28.3 K',
+    ),
+  ];
+}
+
+class GameExplorer {
+  const GameExplorer({
+    required this.img,
+    required this.name,
+    required this.views,
+  });
+  final String img;
+  final String name;
+  final String views;
 }
 
 class Game {

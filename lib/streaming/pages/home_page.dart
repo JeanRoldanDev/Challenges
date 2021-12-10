@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
+            const SizedBox(height: Constants.heightHeader),
             const _Discover(),
             const _LiveChannels(),
             const Padding(
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 140,
+              height: 150,
               child: ListView.builder(
                 itemCount: Constants.games.length,
                 itemExtent: MediaQuery.of(context).size.width / 3.4,
@@ -61,7 +62,8 @@ class HomePage extends StatelessWidget {
                   );
                 },
               ),
-            )
+            ),
+            const SizedBox(height: 100),
           ],
         ),
       ),
@@ -78,29 +80,31 @@ class _Discover extends StatelessWidget {
       padding: paddingPage,
       child: Column(
         children: [
-          const SizedBox(height: 100),
-          Row(
-            children: [
-              Container(
-                width: 5,
-                height: 5,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: CColors.purple,
+          SizedBox(
+            height: 50,
+            child: Row(
+              children: [
+                Container(
+                  width: 5,
+                  height: 5,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: CColors.purple,
+                  ),
+                  margin: const EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                 ),
-                margin: const EdgeInsets.only(right: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-              ),
-              const Text(
-                'Descubrir',
-                style: TextStyles.txtTitle,
-              ),
-              const SizedBox(width: 30),
-              const Text(
-                'Siguiendo',
-                style: TextStyles.txtTitleLigth,
-              ),
-            ],
+                const Text(
+                  'Descubrir',
+                  style: TextStyles.txtTitle,
+                ),
+                const SizedBox(width: 30),
+                const Text(
+                  'Siguiendo',
+                  style: TextStyles.txtTitleLigth,
+                ),
+              ],
+            ),
           ),
           Container(
             decoration: BoxDecoration(

@@ -24,6 +24,7 @@ flutter:
 
   assets:
     - assets/icon_menu/
+    - assets/images/0_globals/
     - assets/images/1_reto_dash_speedometer/
     - assets/images/2_challenge_whatsapp/
     - assets/images/2_challenge_whatsapp/historys/
