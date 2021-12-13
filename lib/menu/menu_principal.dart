@@ -75,9 +75,9 @@ class Principal extends StatelessWidget {
                   ),
                   _Item(
                     assetName: 'assets/icon_menu/3_whatsapp.svg',
-                    title: 'Banking',
+                    title: 'Whatsapp',
                     subTitle:
-                        'This challenge was proposed by the Mauricio Lopez, not complete',
+                        'This challenge was proposed by the Mauricio Lopez',
                     ontap: () {
                       Navigator.push(
                         context,
