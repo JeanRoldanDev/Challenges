@@ -1,29 +1,29 @@
 import 'dart:ui';
 
-import 'package:challenges/challenge_bank_diego/data.dart';
-import 'package:challenges/challenge_bank_diego/helpers.dart';
-import 'package:challenges/challenge_bank_diego/pages/new_card_page.dart';
-import 'package:challenges/challenge_bank_diego/widgets/bank_card.dart';
+import 'package:challenges/2_bank/pages/new_card_page.dart';
+import 'package:challenges/2_bank/utils/data.dart';
+import 'package:challenges/2_bank/utils/helpers.dart';
+import 'package:challenges/2_bank/widgets/bank_card.dart';
 import 'package:challenges/widgets/listenable/value_listenable_two.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class BankAnimationPage extends StatefulWidget {
-  const BankAnimationPage({Key? key}) : super(key: key);
+class BankPage extends StatefulWidget {
+  const BankPage({Key? key}) : super(key: key);
   @override
-  _BankAnimationPageState createState() => _BankAnimationPageState();
+  _BankPageState createState() => _BankPageState();
 }
 
 const _heigthSocial = 150.0;
 const _heigthLastConsume = 100.0;
 
-class _BankAnimationPageState extends State<BankAnimationPage>
+class _BankPageState extends State<BankPage>
     with SingleTickerProviderStateMixin {
   //CONTROL ANIMATION THE SLIDER PAGE
   late AnimationController _animationController;
 
   //CONTROL PAGE CARD
-  late PageController _pageController = PageController(
+  final PageController _pageController = PageController(
     viewportFraction: 0.90,
     initialPage: 1,
   );
@@ -55,7 +55,7 @@ class _BankAnimationPageState extends State<BankAnimationPage>
     super.dispose();
   }
 
-  _statusPage() {
+  void _statusPage() {
     if (_pageController.page! <= 1) {
       transition.value = _pageController.page!.clamp(0, 1);
       transitionSlider.value = 1;
@@ -66,12 +66,11 @@ class _BankAnimationPageState extends State<BankAnimationPage>
 
   @override
   Widget build(BuildContext context) {
-    final borderRaius = 30.0;
+    const borderRaius = 30.0;
     final maxWidth = MediaQuery.of(context).size.width;
     final maxHeight = MediaQuery.of(context).size.height;
 
-    final maxHeightListBack =
-        (maxHeight) - (_heigthSocial + _heigthLastConsume);
+    final maxHeightListBack = maxHeight - (_heigthSocial + _heigthLastConsume);
 
     return Scaffold(
       backgroundColor: Colors.grey.shade400,
@@ -99,7 +98,7 @@ class _BankAnimationPageState extends State<BankAnimationPage>
                 ),
                 Positioned(
                   top: value,
-                  child: Container(
+                  child: SizedBox(
                     height: maxHeightListBack,
                     width: maxWidth,
                     child: Stack(
@@ -110,12 +109,12 @@ class _BankAnimationPageState extends State<BankAnimationPage>
                           valueListenableSecond: transitionSlider,
                           builder: (_, value, valueB, __) {
                             return LayoutBuilder(builder: (_, constraints) {
-                              final spaceFraction = 10.0;
+                              const spaceFraction = 10.0;
 
                               final fraction =
                                   ((maxWidth - (maxWidth * 0.90)) / 2) +
-                                      (spaceFraction);
-                              final spacing = (borderRaius / 2);
+                                      spaceFraction;
+                              const spacing = borderRaius / 2;
 
                               //CALCULATE MIN WIDTH AND HEIGHT THE PAGE
                               final widthPage =
@@ -131,7 +130,7 @@ class _BankAnimationPageState extends State<BankAnimationPage>
                                   heightPage + fillHeightPercent;
 
                               final spaceFractionHeightTOTAL =
-                                  (borderRaius) - (value * (borderRaius));
+                                  borderRaius - (value * borderRaius);
 
                               //CALCULATE MAX WIDTH AND HEIGHT THE PAGE
                               final fillWidth = maxWidth - widthPage;
@@ -144,13 +143,13 @@ class _BankAnimationPageState extends State<BankAnimationPage>
                                   spacing - (value * spacing);
 
                               //CALC MOVE LEFT
-                              double slider = 0.00;
+                              var slider = 0.00;
                               if (valueB > 1) {
                                 slider = (valueB - 1) * constraints.maxWidth;
                               }
 
                               final x = -(spacing - spaceFractionWidthTOTAL);
-                              late double moveLeft = x - slider;
+                              final moveLeft = x - slider;
                               return Transform.translate(
                                 offset: Offset(
                                   moveLeft,
@@ -159,7 +158,6 @@ class _BankAnimationPageState extends State<BankAnimationPage>
                                 child: OverflowBox(
                                   maxHeight: maxHeight,
                                   maxWidth: maxWidth,
-                                  alignment: Alignment.center,
                                   child: Container(
                                     width: fillWidthTOTAL,
                                     height: fillHeightTOTAL,
@@ -167,7 +165,7 @@ class _BankAnimationPageState extends State<BankAnimationPage>
                                       // color: Helpers.blueColor,
                                       borderRadius: BorderRadius.circular(
                                           borderRaius * value),
-                                      gradient: LinearGradient(
+                                      gradient: const LinearGradient(
                                         colors: [
                                           Helpers.blueColor,
                                           Helpers.blueColor2,
@@ -178,11 +176,6 @@ class _BankAnimationPageState extends State<BankAnimationPage>
                                       ),
                                     ),
                                     alignment: Alignment.topLeft,
-                                    // child: Container(
-                                    //   width: 2,
-                                    //   height: 6,
-                                    //   color: Colors.black,
-                                    // ),
                                   ),
                                 ),
                               );

@@ -1,4 +1,4 @@
-import 'package:challenges/challenge_bank_diego/helpers.dart';
+import 'package:challenges/2_bank/utils/helpers.dart';
 import 'package:flutter/material.dart';
 
 class ItemCircleUser extends StatelessWidget {
@@ -20,7 +20,6 @@ class ItemCircleUser extends StatelessWidget {
       padding: const EdgeInsets.only(right: 15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           FittedBox(
             child: CircleAvatar(

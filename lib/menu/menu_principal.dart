@@ -1,4 +1,5 @@
-import 'package:challenges/spedometer/speedometer_page.dart';
+import 'package:challenges/1_spedometer/speedometer_page.dart';
+import 'package:challenges/2_bank/bank_page.dart';
 import 'package:challenges/widgets/navigation/right_to_left_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -60,9 +61,16 @@ class Principal extends StatelessWidget {
                   _Item(
                     assetName: 'assets/icon_menu/2_bank.svg',
                     title: 'Banking',
-                    subTitle: '''
-This challenge was proposed by the Diego Velazquez''',
-                    ontap: () {},
+                    subTitle:
+                        'This challenge was proposed by the Diego Velazquez, not complete',
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        RightToLeftRoute(
+                          page: const BankPage(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -105,7 +113,7 @@ class _Item extends StatelessWidget {
               width: 50,
               height: 50,
               child: SvgPicture.asset(
-                'assets/icon_menu/1_speedometer.svg',
+                assetName,
                 color: colorDefault,
               ),
             ),

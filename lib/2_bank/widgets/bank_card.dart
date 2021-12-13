@@ -17,7 +17,7 @@ class BankCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20),
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radio),
         image: DecorationImage(
@@ -25,14 +25,12 @@ class BankCard extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
-      child: Container(
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
+      child: Text(
+        text,
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
         ),
       ),
     );

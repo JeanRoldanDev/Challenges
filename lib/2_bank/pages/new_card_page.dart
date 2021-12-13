@@ -1,13 +1,13 @@
 import 'dart:ui';
 
-import 'package:challenges/challenge_bank_diego/data.dart';
-import 'package:challenges/challenge_bank_diego/helpers.dart';
-import 'package:challenges/challenge_bank_diego/widgets/item_circle_user.dart';
+import 'package:challenges/2_bank/utils/data.dart';
+import 'package:challenges/2_bank/utils/helpers.dart';
+import 'package:challenges/2_bank/widgets/item_circle_user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NewCardPage extends StatelessWidget {
-  NewCardPage({
+  const NewCardPage({
     Key? key,
     required this.value,
     required this.maxheight,
@@ -40,14 +40,10 @@ class NewCardPage extends StatelessWidget {
           ),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               //HEADER
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   RichText(
                     text: TextSpan(
@@ -61,7 +57,7 @@ class NewCardPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: lerpDouble(75, 50, value),
                     height: 50,
                     child: Stack(
@@ -103,7 +99,7 @@ class NewCardPage extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   itemExtent: (MediaQuery.of(context).size.width / 5) -
                       lerpDouble(0, 10, value)!,
-                  padding: EdgeInsets.symmetric(vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   itemBuilder: (__, item) {
                     final widthChild = (MediaQuery.of(context).size.width / 5) -
                         lerpDouble(0, 10, value)!;
@@ -112,7 +108,7 @@ class NewCardPage extends StatelessWidget {
                           ? ItemCircleUser(
                               name: 'Search',
                               width: widthChild,
-                              child: Icon(CupertinoIcons.search),
+                              child: const Icon(CupertinoIcons.search),
                             )
                           : ItemCircleUser(
                               name: User.listUser[item].name,
@@ -152,7 +148,7 @@ class NewCardPage extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                 ),
-                                SizedBox(width: 10),
+                                const SizedBox(width: 10),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -173,7 +169,7 @@ class NewCardPage extends StatelessWidget {
                                     ),
                                     const SizedBox(height: 10),
                                     Text(
-                                      '\$100  \$5000',
+                                      '100 5000',
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                         color: Helpers.purpleColor,
@@ -203,25 +199,23 @@ class NewCardPage extends StatelessWidget {
                             color: Colors.white,
                           ),
                           padding: const EdgeInsets.all(10),
-                          margin: EdgeInsets.only(bottom: 20),
+                          margin: const EdgeInsets.only(bottom: 20),
                           alignment: Alignment.topLeft,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               if (value >= .60) ...[
                                 Flexible(
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: const EdgeInsets.all(10),
                                     child: Row(
-                                      mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Icon(
                                           Icons.credit_card,
                                           size: 50,
                                           color: Helpers.purpleColor,
                                         ),
-                                        SizedBox(width: 10),
+                                        const SizedBox(width: 10),
                                         Text(
                                           'Pay for services',
                                           style: Helpers.txtList,
@@ -232,26 +226,25 @@ class NewCardPage extends StatelessWidget {
                                 ),
                                 Flexible(
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: const EdgeInsets.all(10),
                                     child: Row(
-                                      mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Icon(
                                           Icons.credit_card,
                                           size: 50,
                                           color: Helpers.purpleColor,
                                         ),
-                                        SizedBox(width: 10),
+                                        const SizedBox(width: 10),
                                         Text(
                                           'TaKE A LOAN ',
                                           style: Helpers.txtList,
                                         ),
-                                        Spacer(),
+                                        const Spacer(),
                                         Text(
                                           '4%',
                                           style: Helpers.txtList,
                                         ),
-                                        SizedBox(width: 20),
+                                        const SizedBox(width: 20),
                                       ],
                                     ),
                                   ),
@@ -270,7 +263,7 @@ class NewCardPage extends StatelessWidget {
                                         child: Container(
                                           width: 50,
                                           height: 50,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Helpers.purpleLigth_color,
                                             shape: BoxShape.circle,
                                           ),
