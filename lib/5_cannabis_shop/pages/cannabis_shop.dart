@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:challenges/cannabis_shop/pages/view_product.dart';
+import 'package:challenges/5_cannabis_shop/pages/view_product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

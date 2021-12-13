@@ -2,6 +2,7 @@ import 'package:challenges/1_spedometer/speedometer_page.dart';
 import 'package:challenges/2_bank/bank_page.dart';
 import 'package:challenges/3_whatsapp/pages/whatsaap.dart';
 import 'package:challenges/4_car_selling/pages/page1.dart';
+import 'package:challenges/5_cannabis_shop/pages/cannabis_shop.dart';
 import 'package:challenges/widgets/navigation/right_to_left_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -97,6 +98,19 @@ class Principal extends StatelessWidget {
                         context,
                         RightToLeftRoute(
                           page: const CarSelling(),
+                        ),
+                      );
+                    },
+                  ),
+                  _Item(
+                    assetName: 'assets/icon_menu/5_canabis_shop.svg',
+                    title: 'Cannabis Shop',
+                    subTitle: 'This challenge was proposed by Mauricio Lopez',
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        RightToLeftRoute(
+                          page: const CannabisShop(),
                         ),
                       );
                     },

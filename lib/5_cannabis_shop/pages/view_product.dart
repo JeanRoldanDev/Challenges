@@ -1,11 +1,10 @@
 import 'dart:ui';
 
-import 'package:challenges/cannabis_shop/data.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../helpers.dart';
+import 'package:challenges/5_cannabis_shop/data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../helpers.dart';
 
 class ViewProduct extends StatelessWidget {
   const ViewProduct({Key? key}) : super(key: key);
