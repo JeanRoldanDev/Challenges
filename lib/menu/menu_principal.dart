@@ -1,5 +1,6 @@
 import 'package:challenges/1_spedometer/speedometer_page.dart';
 import 'package:challenges/2_bank/bank_page.dart';
+import 'package:challenges/3_whatsapp/pages/whatsaap.dart';
 import 'package:challenges/widgets/navigation/right_to_left_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -68,6 +69,20 @@ class Principal extends StatelessWidget {
                         context,
                         RightToLeftRoute(
                           page: const BankPage(),
+                        ),
+                      );
+                    },
+                  ),
+                  _Item(
+                    assetName: 'assets/icon_menu/3_whatsapp.svg',
+                    title: 'Banking',
+                    subTitle:
+                        'This challenge was proposed by the Mauricio Lopez, not complete',
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        RightToLeftRoute(
+                          page: const Whatsapp(),
                         ),
                       );
                     },

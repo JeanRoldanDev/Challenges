@@ -1,5 +1,5 @@
-import 'package:challenges/whatsapp/data.dart';
-import 'package:challenges/whatsapp/helpers.dart';
+import 'package:challenges/3_whatsapp/data.dart';
+import 'package:challenges/3_whatsapp/helpers.dart';
 import 'package:flutter/material.dart';
 
 class CallsPage extends StatelessWidget {
@@ -7,7 +7,7 @@ class CallsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late bool callStatus = false;
+    var callStatus = false;
     return ListView.builder(
       itemCount: 9,
       physics: const BouncingScrollPhysics(),
@@ -39,7 +39,7 @@ class CallsPage extends StatelessWidget {
               )
             ],
           ),
-          trailing: Icon(
+          trailing: const Icon(
             Icons.call,
             color: Helpers.greenColor,
           ),

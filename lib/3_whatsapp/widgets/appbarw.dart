@@ -1,5 +1,5 @@
-import 'package:challenges/whatsapp/helpers.dart';
-import 'package:challenges/whatsapp/widgets/button_circle.dart';
+import 'package:challenges/3_whatsapp/helpers.dart';
+import 'package:challenges/3_whatsapp/widgets/button_circle.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

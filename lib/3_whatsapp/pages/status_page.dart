@@ -1,8 +1,8 @@
-import 'package:challenges/whatsapp/data.dart';
-import 'package:challenges/whatsapp/helpers.dart';
-import 'package:challenges/whatsapp/widgets/button_circle.dart';
-import 'package:challenges/whatsapp/widgets/historys_container.dart';
-import 'package:challenges/whatsapp/widgets/historys_line.dart';
+import 'package:challenges/3_whatsapp/data.dart';
+import 'package:challenges/3_whatsapp/helpers.dart';
+import 'package:challenges/3_whatsapp/widgets/button_circle.dart';
+import 'package:challenges/3_whatsapp/widgets/historys_container.dart';
+import 'package:challenges/3_whatsapp/widgets/historys_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 

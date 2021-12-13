@@ -1,14 +1,14 @@
 import 'dart:ui';
 
-import 'package:challenges/whatsapp/helpers.dart';
-import 'package:challenges/whatsapp/pages/calls_page.dart';
-import 'package:challenges/whatsapp/pages/chats_page.dart';
-import 'package:challenges/whatsapp/pages/groups_page.dart';
-import 'package:challenges/whatsapp/pages/status_page.dart';
-import 'package:challenges/whatsapp/widgets/appbarw.dart';
-import 'package:challenges/whatsapp/widgets/button_circle.dart';
-import 'package:challenges/whatsapp/widgets/historys.dart';
-import 'package:challenges/whatsapp/widgets/tabsw.dart';
+import 'package:challenges/3_whatsapp/helpers.dart';
+import 'package:challenges/3_whatsapp/pages/calls_page.dart';
+import 'package:challenges/3_whatsapp/pages/chats_page.dart';
+import 'package:challenges/3_whatsapp/pages/groups_page.dart';
+import 'package:challenges/3_whatsapp/pages/status_page.dart';
+import 'package:challenges/3_whatsapp/widgets/appbarw.dart';
+import 'package:challenges/3_whatsapp/widgets/button_circle.dart';
+import 'package:challenges/3_whatsapp/widgets/historys.dart';
+import 'package:challenges/3_whatsapp/widgets/tabsw.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
