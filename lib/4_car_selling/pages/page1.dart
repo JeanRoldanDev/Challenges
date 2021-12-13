@@ -1,5 +1,5 @@
-import 'package:challenges/car_selling/pages/constants.dart';
-import 'package:challenges/car_selling/pages/page2.dart';
+import 'package:challenges/4_car_selling/pages/constants.dart';
+import 'package:challenges/4_car_selling/pages/page2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -9,15 +9,17 @@ import 'package:flutter_svg/svg.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
 // https://dribbble.com/shots/15104445-car-selling-app
+//Mahdi.design
 
-class Page1 extends StatefulWidget {
-  Page1({Key? key}) : super(key: key);
+class CarSelling extends StatefulWidget {
+  const CarSelling({Key? key}) : super(key: key);
 
   @override
-  _Page1State createState() => _Page1State();
+  _CarSellingState createState() => _CarSellingState();
 }
 
-class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
+class _CarSellingState extends State<CarSelling>
+    with SingleTickerProviderStateMixin {
   ValueNotifier<int> selectedItemBrand = ValueNotifier<int>(1);
   ValueNotifier<int> selectedItemMenuBottom = ValueNotifier<int>(1);
 
