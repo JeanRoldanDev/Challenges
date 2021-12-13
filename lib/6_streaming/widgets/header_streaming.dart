@@ -1,8 +1,8 @@
 import 'dart:ui' as ui;
 
 import 'package:challenges/constanst.dart';
-import 'package:challenges/streaming/helpers/helpers.dart';
-import 'package:challenges/streaming/widgets/paths/path_header_clipper.dart';
+import 'package:challenges/6_streaming/helpers/helpers.dart';
+import 'package:challenges/6_streaming/widgets/paths/path_header_clipper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

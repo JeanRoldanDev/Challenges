@@ -1,4 +1,4 @@
-import 'package:challenges/streaming/helpers/helpers.dart';
+import 'package:challenges/6_streaming/helpers/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';

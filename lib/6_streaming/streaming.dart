@@ -1,14 +1,13 @@
-import 'package:challenges/streaming/helpers/helpers.dart';
-import 'package:challenges/streaming/pages/explorer_page.dart';
-import 'package:challenges/streaming/pages/home_page.dart';
-import 'package:challenges/streaming/widgets/widgets.dart';
+import 'package:challenges/6_streaming/helpers/helpers.dart';
+import 'package:challenges/6_streaming/pages/explorer_page.dart';
+import 'package:challenges/6_streaming/pages/home_page.dart';
+import 'package:challenges/6_streaming/widgets/widgets.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class StreamingApp extends StatelessWidget {
-  StreamingApp({Key? key}) : super(key: key);
-
+  StreamingApp({Key? key});
   final PageController pageController = PageController();
 
   @override

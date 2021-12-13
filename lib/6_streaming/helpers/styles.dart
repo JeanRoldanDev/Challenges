@@ -1,4 +1,4 @@
-import 'package:challenges/streaming/helpers/helpers.dart' show CColors;
+import 'package:challenges/6_streaming/helpers/helpers.dart' show CColors;
 import 'package:flutter/material.dart';
 
 class TextStyles {

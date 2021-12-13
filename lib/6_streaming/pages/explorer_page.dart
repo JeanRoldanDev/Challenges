@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:ui' as ui;
 
-import 'package:challenges/streaming/helpers/helpers.dart';
+import 'package:challenges/6_streaming/helpers/helpers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
